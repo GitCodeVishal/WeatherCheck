@@ -9,8 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkWeather = async (city) => {
         const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
         const data = await response.json();
-        console.log(data);
-
+        
         document.querySelector(".city").innerHTML = data.name;
         document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°c";
         document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
@@ -28,6 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (data.weather[0].main == "Mist") {
             weatherIcon.src = "images/mist.png";
         }
+
+        document.querySelector(".weather").style.display = "block"
     }
 
     searchButton.addEventListener("click", () => {
