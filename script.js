@@ -44,6 +44,14 @@ document.addEventListener("DOMContentLoaded", () => {
         checkWeather(searchBox.value);
     });
 
+    const handleEnterKey = (event) => {
+        if (event.key === "Enter") {
+            checkWeather(searchBox.value);
+        }
+    };
+
+    searchBox.addEventListener("keydown", handleEnterKey);
+
 
 
 });
